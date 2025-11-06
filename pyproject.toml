@@ -1,0 +1,4 @@
+[tool.dagster]
+module_name = "dagster_pipeline"
+python_file = "dagster_pipeline.py"
+

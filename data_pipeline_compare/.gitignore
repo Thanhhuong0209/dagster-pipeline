@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data files
+*.parquet
+data/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Performance reports
+performance_report.json
+
+# Charts (keep source, ignore generated)
+*.png
+!comprehensive_comparison.png
+!execution_time_comparison.png
+!time_series_comparison.png
+!consistency_comparison.png
+!radar_comparison.png
+!feature_comparison.png
+!dagster_advantages.png
+
+# Dagster
+.dagster/
+
+# Prefect
+.prefect/

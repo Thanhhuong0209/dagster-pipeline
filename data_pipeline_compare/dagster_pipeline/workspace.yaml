@@ -1,0 +1,5 @@
+load_from:
+  - python_package:
+      package_name: my_dagster_project
+      working_directory: .
+

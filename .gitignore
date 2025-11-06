@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pth
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Data files
+*.parquet
+data/timeseries_data.parquet
+data_pipeline_compare/data/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Performance reports (keep structure, ignore data)
+data_pipeline_compare/performance_report.json
+
+# Charts (keep some, but ignore if too large)
+# Uncomment if you want to ignore charts
+# *.png
+
+# Dagster
+.dagster/
+dagster-data/
+
+# Prefect
+.prefect/
+.prefect/
+
+# Environment variables
+.env
+.env.local
+
+# Podman/Docker volumes
+victoriametrics-data/
+victoriametrics-data-dagster/
+victoriametrics-data-prefect/
+
+# Temporary files
+*.tmp
+*.bak
+*~
