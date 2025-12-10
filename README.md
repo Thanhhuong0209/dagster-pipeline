@@ -2,6 +2,8 @@
 
 Project này sử dụng Dagster để đọc Parquet files và ghi dữ liệu vào VictoriaMetrics.
 
+> Note (CI/CD test): Dòng này được thêm để kiểm tra webhook Jenkins tự động build/deploy khi push.
+
 ## Cấu trúc Project
 
 ```
