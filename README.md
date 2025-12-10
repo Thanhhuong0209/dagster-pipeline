@@ -1,19 +1,15 @@
-# Dagster vs Prefect Performance Comparison
+# Dagster Pipeline với VictoriaMetrics
 
-Project này so sánh performance và features giữa Dagster và Prefect trong việc đọc Parquet files và ghi vào VictoriaMetrics.
+Project này sử dụng Dagster để đọc Parquet files và ghi dữ liệu vào VictoriaMetrics.
 
 ## Cấu trúc Project
 
 ```
 dagster_vic/
-├── data_pipeline_compare/          # Main comparison project
+├── data_pipeline_compare/          # Dagster pipeline project
 │   ├── dagster_pipeline/           # Dagster pipeline
-│   ├── prefect_pipeline/           # Prefect pipeline
-│   ├── data/                      # Shared data files
-│   ├── performance_benchmark.py   # Benchmark script
-│   ├── create_visualization.py    # Visualization charts
-│   ├── create_dagster_focused_charts.py  # Dagster-focused charts
-│   └── README.md                  # Detailed documentation
+│   ├── data/                       # Data files
+│   └── README.md                   # Detailed documentation
 ├── dagster_pipeline.py            # Root Dagster pipeline (for Windows host)
 ├── generate_timeseries.py         # Generate timeseries data
 └── README.md                       # This file
@@ -32,15 +28,7 @@ Script này sẽ:
 - Tạo metrics cho temperature và humidity từ nhiều sensors
 - Ghi trực tiếp vào VictoriaMetrics tại `http://localhost:8428`
 
-### 2. Tạo Sample Parquet File
-
-```bash
-python create_sample_parquet.py
-```
-
-File Parquet sẽ được tạo tại `data/timeseries_data.parquet`
-
-### 3. Chạy Dagster Pipeline
+### 2. Chạy Dagster Pipeline
 
 #### Sử dụng Podman:
 
@@ -68,28 +56,6 @@ Sau đó truy cập http://localhost:3000 để xem và chạy pipeline.
 ```bash
 dagster asset materialize --select "read_parquet_data,write_to_victoriametrics" -m dagster_pipeline
 ```
-
-### 4. Chạy Prefect Pipeline (So sánh với Dagster)
-
-#### Chạy Prefect pipeline:
-```bash
-python run_prefect_comparison.py
-```
-
-Hoặc chạy trực tiếp:
-```bash
-python prefect_pipeline.py
-```
-
-#### So sánh Performance giữa Dagster và Prefect:
-```bash
-python performance_comparison.py
-```
-
-Script này sẽ:
-- Chạy Dagster pipeline và đo thời gian
-- Chạy Prefect pipeline và đo thời gian
-- So sánh và hiển thị kết quả
 
 ## Cấu hình VictoriaMetrics
 
@@ -187,4 +153,3 @@ curl 'http://localhost:8428/api/v1/query?query=temperature_celsius'
 
 # Hoặc sử dụng Grafana để visualize
 ```
-
