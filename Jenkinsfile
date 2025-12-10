@@ -39,10 +39,17 @@ pipeline {
             }
         }
         
-        stage('Deploy to EC2 (Optional)') {
-            // Bước này có thể thêm sau để trigger Ansible deploy hoặc update service
+        stage('Deploy to EC2') {
             steps {
-                echo 'Deployment step placeholder'
+                script {
+                    // Chạy lệnh docker compose để deploy
+                    // Lưu ý: File docker-compose.yml đã nằm sẵn trong workspace do checkout từ git
+                    sh '''
+                        docker compose down
+                        docker compose pull
+                        docker compose up -d
+                    '''
+                }
             }
         }
     }
