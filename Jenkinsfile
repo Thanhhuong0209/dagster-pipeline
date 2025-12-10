@@ -20,11 +20,9 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build image từ Dockerfile trong thư mục dagster_vic
-                    // Lưu ý: dir('dagster_vic') để vào đúng thư mục chứa Dockerfile
-                    dir('dagster_vic') {
-                        dockerImage = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
-                    }
+                    // Build image từ Dockerfile tại thư mục hiện tại (root của repo)
+                    // Đã bỏ dir('dagster_vic') vì trên GitHub Dockerfile nằm ngay root
+                    dockerImage = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
                 }
             }
         }
