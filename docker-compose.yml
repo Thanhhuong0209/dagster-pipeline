@@ -1,10 +1,10 @@
-version: '3.8'
+version: '3.8'  # (optional) Compose v2+ không cần version, có thể xóa nếu muốn
 
 services:
   # Dagster User Code (Chứa logic pipeline của bạn)
   user_code:
     build: .
-    image: dagster-user-code:latest
+    image: thanhhuong29/dagster-user-code:latest
     container_name: dagster-user-code
     restart: always
     environment:
